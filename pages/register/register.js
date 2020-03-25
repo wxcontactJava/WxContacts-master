@@ -269,6 +269,7 @@ Page({
             },
             complete: function () {
                 // complete
+                console.log("test")
             }
         })
         // console.log(this.data.userName, this.data.password);

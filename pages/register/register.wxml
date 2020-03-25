@@ -1,0 +1,62 @@
+<view class="container">
+    <scroll-view scroll-y bindscrolltoupper="upper" bindscrolltolower="lower" bindscroll="scroll" scroll-into-view="{{toView}}"
+                 scroll-top="{{scrollTop}}">
+        <view class="login-container">
+
+            <text class="app-title">用户注册</text>
+            <form class="login-form">
+                <view class="section">
+                    <input name="name" type="name" bindinput="bindNameInput" placeholder="姓名" />
+                </view>
+                <view class="section">
+                    <input name="gender" type="gender" bindinput="bindGenderInput" placeholder="性别" />
+                </view>
+                <view class="section">
+                    <input name="phone" type="phone" bindinput="bindPhoneInput" placeholder="手机号码" />
+                </view>
+                <view class="section">
+                    <input name="password" bindinput="bindPasswordInput" type="password" password="true" placeholder="密码" />
+                </view>
+                <view class="section">
+                    <input name="confirmPwd" bindinput="bindConfirmPwdInput" type="password" password="true" placeholder="密码确认" />
+                </view>
+                <view class="section">
+                    <input name="communityName" type="communityName" bindinput="bindCommunityNameInput" placeholder="小区名称" />
+                </view>
+                <view class="section">
+                    <input name="flowNum" type="flowNum" bindinput="bindFlowNumInput" placeholder="楼号" />
+                </view>
+                <view class="section">
+                    <input name="unitNum" type="unitNum" bindinput="bindUnitNumInput" placeholder="单元号" />
+                </view>
+                <view class="section">
+                    <input name="roomNum" type="roomNum" bindinput="bindRoomNumInput" placeholder="房间号" />
+                </view>
+                <view class="weui-uploader">
+                    <view class="img-v weui-uploader__bd">
+                        <view class='pic' wx:for="{{imgs}}" wx:for-item="item" wx:key="*this">
+                            <image class='weui-uploader__img '
+                                   src="{{item}}"
+                                   data-index="{{index}}" mode="aspectFill" bindtap="previewImg">
+                                <icon type='cancel' class="delete-btn" data-index="{{index}}" catchtap="deleteImg"></icon>
+                            </image>
+                        </view>
+                        <!--只允许上传一张照片-->
+                        <view wx:if="{{imgs.length<1}}"  bindtap='chooseimg'>
+                            <button class="upload-img-btn" bindtap="chooseImg" type='primary'>拍照  / 上传</button>
+                        </view><!-- 用来提示用户上传图片 -->
+                        <view class="weui-uploader__input-box pic" bindtap="chooseImg"> </view>
+
+                    </view>
+
+                </view>
+
+                <text class="{{ isError ? 'error' : ''}}">{{errorText}}</text>
+            </form>
+            <view class="section">
+                <button bindtap="register">立即注册</button>
+            </view>
+
+        </view>
+    </scroll-view>
+</view>

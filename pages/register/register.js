@@ -269,7 +269,7 @@ Page({
             },
             complete: function () {
                 // complete
-                console.log("test")
+                console.log("test11")
             }
         })
         // console.log(this.data.userName, this.data.password);

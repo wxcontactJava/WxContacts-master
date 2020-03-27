@@ -1,4 +1,4 @@
-/* pages/login/login.wxss */
+pages/login/login.wxss
 
 .container {
     padding: 0;
@@ -33,7 +33,7 @@
     line-height: 68rpx;
     border: 2rpx solid #ccc;
     border-radius: 40rpx;
-	box-sizing: border-box;
+  	box-sizing: border-box;
 }
 
 .login-container .section button {
@@ -48,7 +48,7 @@
     border: none;
     border-radius: 40rpx;
     background: #2d8cf0;
-	cursor: pointer;
+	  cursor: pointer;
 }
 .login-form {
     position: relative;
@@ -65,4 +65,58 @@
     font-size: 28rpx;
     line-height: 1;
     margin-top: -20rpx;
+}
+
+.login-container .section .result_inner_input{
+  width: 75%;
+  /* height: 90rpx; */
+  /* background: #F1F1F1; */
+  /* border-radius:45rpx; */
+  margin-left: 20rpx;
+  border-radius: 40rpx;
+  position: relative;
+}
+.makecode{
+  width: 149rpx;
+  height: 53rpx;
+  background: #FFFFFF;
+  border-radius: 26.5rpx;
+  position: absolute;
+  right: 55rpx;
+  top:10rpx;
+  color:#0903EC;
+  text-align: center;
+  line-height: 53rpx;
+}
+.getcode{
+  font-size: 24rpx;
+  color:#444444;
+  position: absolute;
+  width: 73rpx;
+  height: 23rpx;
+  right:-60rpx;
+  top:30rpx;
+}
+.result_btn{
+  /* width: 100%; */
+  margin-top: 49rpx;
+  height: 70rpx;
+  padding: 0rpx 30rpx;
+  margin-bottom: 60rpx;
+}
+.result_btn view{
+  width: 180rpx;
+  height: 70rpx;
+  border-radius: 35rpx;
+  border:2rpx solid #97C9C6;
+  display: inline-block;
+  color: #97C9C6;
+  line-height: 70rpx;
+  text-align: center;
+  font-size:30rpx;
+}
+.result_btn view:nth-child(2){
+  background: #97C9C6;
+  color: #FFFFFF;
+  float: right;
 }

@@ -18,13 +18,18 @@ Page({
         errorText: '',
         imgs: [],
         photo: '',
+        wx_chat:'',
+        code: ''
     },
 
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-
+        this.createCode();
+    },
+    getcode: function () {
+        this.createCode();
     },
     /**
      * 用户名
@@ -50,7 +55,14 @@ Page({
             phone: e.detail.value
         });
     },
-
+    /**
+     * 输微信号（用户名）
+     */
+    bindWeChatInput: function (e) {
+        this.setData({
+            wx_chat: e.wx_chat.value
+        });
+    },
     /**
      * 输入密码
      */
@@ -65,7 +77,7 @@ Page({
      */
     bindConfirmPwdInput: function (e) {
         this.setData({
-            confirmPwd: e.detail.value,
+            confirmPwd: e.detail.value
         });
     },
     /**
@@ -100,6 +112,14 @@ Page({
             roomNum: e.detail.value
         });
     },
+
+    //获取输入验证码并比较
+    makecodeInput: function (e) {
+        this.setData({
+            makecode: e.detail.value
+        })
+    },
+
 // 上传图片
     chooseImg: function (e) {
         var that = this;
@@ -125,7 +145,7 @@ Page({
                 var tempFilePaths = res.tempFilePaths;
                 var imgs = that.data.imgs;
                 // 先定义一个photo用来接收图片的base64
-                var photo = that.data.photo
+                var photo = that.data.photo;
                 // console.log(tempFilePaths + '----');
                 for (var i = 0; i < tempFilePaths.length; i++) {
                     if (imgs.length >= 9) {
@@ -182,7 +202,27 @@ Page({
             urls: imgs
         })
     },
-
+    //验证码
+    createCode:function() {
+        var code;
+        //首先默认code为空字符串
+        code = '';
+        //设置长度，这里看需求，我这里设置了4
+        var codeLength = 4;
+        //设置随机字符
+        var random = new Array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9);
+        //循环codeLength 我设置的4就是循环4次
+        for (var i = 0; i < codeLength; i++) {
+            //设置随机数范围,这设置为0 ~ 10
+            var index = Math.floor(Math.random() * 10);
+            //字符串拼接 将每次随机的字符 进行拼接
+            code += random[index];
+        }
+        //将拼接好的字符串赋值给展示的code
+        this.setData({
+            code: code
+        })
+    },
 
     /**
      * 点击注册按钮
@@ -212,7 +252,8 @@ Page({
             flowNum: this.data.flowNum,
             unitNum: this.data.unitNum,
             roomNum: this.data.roomNum,
-            photo: this.data.photo
+            photo: this.data.photo,
+            wx_chat: this.data.wx_chat
         }
         //传递List
         /* var contactUser = [{
